@@ -3,6 +3,7 @@ from config import DATABASE_CONNECTION
 from utils.db import db
 from services.contact import contacts
 from services.predio import predios
+from services.tipo_predio import tipopredios
 
 app = Flask(__name__) # crea una instancia de la clase Flask
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_CONNECTION # establece la cadena de conexión a la base de datos
@@ -11,6 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # deshabilita el seguimient
 db.init_app(app) # inicializa la base de datos
 app.register_blueprint(contacts) # registra el blueprint en la aplicación
 app.register_blueprint(predios) # registra el blueprint en la aplicación
+app.register_blueprint(tipopredios) # registra el blueprint en la aplicación
 # el blueprint es una forma de organizar y reutilizar código en una aplicación de Flask que actualiza o extiende la aplicación principal
 
 with app.app_context(): # crea un contexto de aplicación
